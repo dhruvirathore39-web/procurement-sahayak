@@ -155,6 +155,7 @@
     margin: 0;
     min-width: 320px;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   button, input { font: inherit; }
@@ -283,7 +284,7 @@
   .login-page { display: block; }
   .login-intro { min-height: 590px; }.intro-content { padding: 26px 24px 190px; }.intro-copy { margin-top: 20px; }.intro-copy h1 { font-size: 42px; }.intro-subtitle { font-size: 19px; }.intro-support { margin-top: 16px; font-size: 13px; }
   .feature-row { margin-top: 25px; gap: 12px; }.feature-item { font-size: 10px; }.parliament-scene { width: 90%; transform: scale(.72); transform-origin: bottom left; bottom: 64px; }.wave { width: 140%; }.national-motto { bottom: 18px; font-size: 10px; }.national-motto b { padding: 0 5px; }
-  .login-panel { min-height: auto; padding: 34px 17px; }.login-card { padding: 31px 21px 27px; }.card-mark-row { gap: 18px; }.card-mark-row > span { width: 52px; }
+  .login-panel { min-height: auto; padding: 34px 17px; }.login-card { width: 100%; box-sizing: border-box; padding: 31px 21px 27px; }.card-mark-row { gap: 18px; }.card-mark-row > span { width: 52px; }
   .dashboard-header-inner { min-height: 66px; padding: 0 15px; }.header-brand .government-mark,.header-divider,.header-brand > .ai-mark,.profile-copy { display: none; }.header-brand > div:last-child strong { font-size: 14px; }.profile-area .avatar { display: none; }.profile-area button { padding: 0 9px; }
   .dashboard-main { padding: 34px 16px 50px; }.assistant-prompt h1 { font-size: 31px; }.assistant-prompt > p { font-size: 13px; }.ask-form { min-height: 58px; padding: 7px 7px 7px 14px; flex-wrap: wrap; }.ask-form input { height: 40px; }.ask-form button { width: 100%; }.ask-form > svg { display: none; }
   .results-heading { align-items: flex-end; margin-top: 42px; }.verified-label { display: none; }.results-heading h2 { font-size: 16px; }.result-grid { grid-template-columns: 1fr; }.recent-card { grid-column: auto; }
