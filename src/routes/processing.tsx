@@ -63,7 +63,7 @@ function Processing() {
     if (!parsed) { navigate({ to: "/new-recommendation", replace: true }); return; }
     setReq(parsed);
     const timers = finishAt.map((t, i) => window.setTimeout(() => setDone(i + 1), t));
-    timers.push(window.setTimeout(() => navigate({ to: "/results" }), finishAt[finishAt.length - 1] + 900));
+    timers.push(window.setTimeout(() => navigate({ to: "/results" }), 8900));
     return () => timers.forEach(clearTimeout);
   }, [navigate]);
 
