@@ -50,6 +50,8 @@ function NewRecommendation() {
   const [errors, setErrors] = useState<Errors>({});
   const [loading, setLoading] = useState(false);
 
+  const clear = (k: keyof Errors) => setErrors((e) => ({ ...e, [k]: undefined }));
+
   const pickFile = (f?: File | null) => {
     if (!f) return;
     const ext = f.name.split(".").pop()?.toLowerCase() ?? "";
@@ -105,7 +107,7 @@ function NewRecommendation() {
             <label htmlFor="product">Product / Equipment Name <b>*</b></label>
             <div className={errors.product ? "field-input invalid" : "field-input"}>
               <Box />
-              <input id="product" value={product} onChange={(e) => setProduct(e.target.value)} placeholder="e.g. Solar Water Pump" />
+              <input id="product" value={product} onChange={(e) => { setProduct(e.target.value); clear("product"); }} placeholder="e.g. Solar Water Pump" />
             </div>
             {errors.product && <p className="field-error">{errors.product}</p>}
           </div>
@@ -113,7 +115,7 @@ function NewRecommendation() {
           <div className="field">
             <label htmlFor="specs">Technical Specifications <b>*</b></label>
             <div className={errors.specs ? "field-textarea invalid" : "field-textarea"}>
-              <textarea id="specs" rows={6} maxLength={MAX} value={specs} onChange={(e) => setSpecs(e.target.value)} placeholder={"Enter technical requirements, specifications, capacity,\nmaterial, safety requirements..."} />
+              <textarea id="specs" rows={6} maxLength={MAX} value={specs} onChange={(e) => { setSpecs(e.target.value); clear("specs"); }} placeholder={"Enter technical requirements, specifications, capacity,\nmaterial, safety requirements..."} />
               <span className="char-count">{specs.length}/{MAX}</span>
             </div>
             {errors.specs && <p className="field-error">{errors.specs}</p>}
@@ -155,7 +157,7 @@ function NewRecommendation() {
             <label htmlFor="language">Language <b>*</b></label>
             <div className={errors.language ? "field-input invalid" : "field-input"}>
               <Globe />
-              <select id="language" value={language} onChange={(e) => setLanguage(e.target.value)} className={language ? "" : "placeholder"}>
+              <select id="language" value={language} onChange={(e) => { setLanguage(e.target.value); clear("language"); }} className={language ? "" : "placeholder"}>
                 <option value="" disabled>Select language</option>
                 {languages.map((l) => <option key={l}>{l}</option>)}
               </select>
