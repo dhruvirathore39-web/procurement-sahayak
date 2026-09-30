@@ -11,6 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as NewRecommendationRouteImport } from './routes/new-recommendation'
+import { Route as PendingReviewRouteImport } from './routes/pending-review'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as StandardsRouteImport } from './routes/standards'
+import { Route as RecommendationsIdRouteImport } from './routes/recommendations/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +30,134 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewRecommendationRoute = NewRecommendationRouteImport.update({
+  id: '/new-recommendation',
+  path: '/new-recommendation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PendingReviewRoute = PendingReviewRouteImport.update({
+  id: '/pending-review',
+  path: '/pending-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StandardsRoute = StandardsRouteImport.update({
+  id: '/standards',
+  path: '/standards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecommendationsIdRoute = RecommendationsIdRouteImport.update({
+  id: '/recommendations/$id',
+  path: '/recommendations/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/help': typeof HelpRoute
+  '/history': typeof HistoryRoute
+  '/new-recommendation': typeof NewRecommendationRoute
+  '/pending-review': typeof PendingReviewRoute
+  '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
+  '/standards': typeof StandardsRoute
+  '/recommendations/$id': typeof RecommendationsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/help': typeof HelpRoute
+  '/history': typeof HistoryRoute
+  '/new-recommendation': typeof NewRecommendationRoute
+  '/pending-review': typeof PendingReviewRoute
+  '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
+  '/standards': typeof StandardsRoute
+  '/recommendations/$id': typeof RecommendationsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/help': typeof HelpRoute
+  '/history': typeof HistoryRoute
+  '/new-recommendation': typeof NewRecommendationRoute
+  '/pending-review': typeof PendingReviewRoute
+  '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
+  '/standards': typeof StandardsRoute
+  '/recommendations/$id': typeof RecommendationsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/help'
+    | '/history'
+    | '/new-recommendation'
+    | '/pending-review'
+    | '/profile'
+    | '/settings'
+    | '/standards'
+    | '/recommendations/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard'
-  id: '__root__' | '/' | '/dashboard'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/help'
+    | '/history'
+    | '/new-recommendation'
+    | '/pending-review'
+    | '/profile'
+    | '/settings'
+    | '/standards'
+    | '/recommendations/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/help'
+    | '/history'
+    | '/new-recommendation'
+    | '/pending-review'
+    | '/profile'
+    | '/settings'
+    | '/standards'
+    | '/recommendations/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  HelpRoute: typeof HelpRoute
+  HistoryRoute: typeof HistoryRoute
+  NewRecommendationRoute: typeof NewRecommendationRoute
+  PendingReviewRoute: typeof PendingReviewRoute
+  ProfileRoute: typeof ProfileRoute
+  SettingsRoute: typeof SettingsRoute
+  StandardsRoute: typeof StandardsRoute
+  RecommendationsIdRoute: typeof RecommendationsIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +176,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-recommendation': {
+      id: '/new-recommendation'
+      path: '/new-recommendation'
+      fullPath: '/new-recommendation'
+      preLoaderRoute: typeof NewRecommendationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pending-review': {
+      id: '/pending-review'
+      path: '/pending-review'
+      fullPath: '/pending-review'
+      preLoaderRoute: typeof PendingReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/standards': {
+      id: '/standards'
+      path: '/standards'
+      fullPath: '/standards'
+      preLoaderRoute: typeof StandardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recommendations/$id': {
+      id: '/recommendations/$id'
+      path: '/recommendations/$id'
+      fullPath: '/recommendations/$id'
+      preLoaderRoute: typeof RecommendationsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  HelpRoute: HelpRoute,
+  HistoryRoute: HistoryRoute,
+  NewRecommendationRoute: NewRecommendationRoute,
+  PendingReviewRoute: PendingReviewRoute,
+  ProfileRoute: ProfileRoute,
+  SettingsRoute: SettingsRoute,
+  StandardsRoute: StandardsRoute,
+  RecommendationsIdRoute: RecommendationsIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
