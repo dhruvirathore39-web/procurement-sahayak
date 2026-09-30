@@ -472,3 +472,62 @@
 .secure-box svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--success); }
 @media (max-width: 1020px) { .newrec-layout { grid-template-columns: 1fr; } }
 @media (max-width: 760px) { .newrec-form { padding: 20px; } .breadcrumb { flex-wrap: wrap; } }
+
+/* ===== AI Processing ===== */
+.proc-card { display: flex; flex-direction: column; gap: 18px; padding: 28px; }
+.proc-card .screen-head h1 { font-size: 22px; }
+.proc-for { margin: -4px 0 0; font-size: 13px; color: var(--muted-foreground); }
+.proc-for strong { color: var(--navy); }
+.timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.tl-step { position: relative; display: flex; align-items: center; gap: 14px; padding: 12px 0; }
+.tl-step:not(:last-child)::after { content: ""; position: absolute; left: 13px; top: 42px; bottom: -10px; width: 2px; background: var(--border); }
+.tl-step.done:not(:last-child)::after { background: var(--success); }
+.tl-marker { width: 28px; height: 28px; display: grid; place-items: center; flex-shrink: 0; z-index: 1; background: var(--card); }
+.tl-marker svg { width: 24px; height: 24px; }
+.tl-step.done .tl-marker { color: var(--success); }
+.tl-step.active .tl-marker { color: var(--primary); }
+.tl-marker i { width: 18px; height: 18px; border-radius: 50%; border: 2px solid color-mix(in oklab, var(--primary) 25%, var(--border)); background: var(--secondary); }
+.tl-icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; flex-shrink: 0; background: var(--secondary); color: var(--primary); }
+.tl-icon svg { width: 19px; height: 19px; }
+.tl-step.pending .tl-icon { color: var(--muted-foreground); }
+.tl-step.pending .tl-copy { opacity: .6; }
+.tl-copy { flex: 1; min-width: 0; }
+.tl-copy strong { display: block; font-size: 14px; color: var(--navy); }
+.tl-copy small { display: block; font-size: 13px; color: var(--muted-foreground); margin-top: 2px; }
+.tl-status { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.tl-status.done { background: color-mix(in oklab, var(--success) 14%, transparent); color: var(--success); }
+.tl-status.active { background: color-mix(in oklab, var(--primary) 12%, transparent); color: var(--primary); }
+.tl-status.pending { background: var(--secondary); color: var(--muted-foreground); }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.proc-banner { display: flex; align-items: center; gap: 14px; background: var(--secondary); border: 1px solid color-mix(in oklab, var(--primary) 16%, transparent); border-radius: 12px; padding: 14px 16px; }
+.proc-banner > div { flex: 1; }
+.proc-banner strong { display: block; color: var(--navy); font-size: 14px; }
+.proc-banner small { display: block; color: var(--muted-foreground); font-size: 13px; margin-top: 2px; }
+.dots { display: flex; gap: 5px; }
+.dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); animation: bounce 1.2s infinite ease-in-out; }
+.dots i:nth-child(2) { animation-delay: .15s; } .dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes bounce { 0%, 80%, 100% { opacity: .3; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-4px); } }
+.proc-side { display: flex; flex-direction: column; gap: 18px; }
+.file-chip.static { max-width: none; }
+.upload-ok { display: flex; align-items: center; gap: 6px; margin: 10px 0 18px; font-size: 13px; font-weight: 600; color: var(--success); }
+.upload-ok svg { width: 16px; height: 16px; }
+.progress-head { display: flex; justify-content: space-between; font-size: 14px; color: var(--navy); margin-bottom: 8px; }
+.progress-head span { font-weight: 700; color: var(--primary); }
+.progress-track { height: 10px; border-radius: 999px; background: var(--secondary); overflow: hidden; }
+.progress-track div { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--primary), var(--success)); transition: width .5s ease; }
+.progress-note { display: block; margin-top: 8px; font-size: 13px; color: var(--muted-foreground); }
+.next-card { display: flex; gap: 12px; background: var(--secondary); border: 1px solid color-mix(in oklab, var(--primary) 16%, transparent); border-radius: 14px; padding: 18px; }
+.next-card strong { color: var(--navy); font-size: 15px; }
+.next-card p { margin: 6px 0 0; font-size: 13px; line-height: 1.55; color: var(--foreground); }
+.proc-art { position: relative; height: 190px; border-radius: 14px; background: linear-gradient(180deg, transparent, var(--secondary)); overflow: hidden; }
+.proc-art p { position: absolute; bottom: 10px; left: 0; right: 0; margin: 0; text-align: center; font-size: 13px; font-weight: 600; color: var(--primary); }
+.pa-leaf { position: absolute; width: 60px; height: 110px; border-radius: 60px 0; background: color-mix(in oklab, var(--primary) 12%, transparent); }
+.pa-leaf.l1 { left: 18px; bottom: 30px; transform: rotate(-20deg); } .pa-leaf.l2 { right: 22px; bottom: 34px; transform: rotate(25deg); }
+.pa-doc { position: absolute; left: 50%; top: 18px; transform: translateX(-10%); width: 74px; height: 96px; background: var(--card); border-radius: 10px; box-shadow: 0 10px 24px color-mix(in oklab, var(--primary) 18%, transparent); display: flex; flex-direction: column; gap: 7px; padding: 12px; box-sizing: border-box; color: var(--primary); }
+.pa-doc i { height: 6px; border-radius: 3px; background: color-mix(in oklab, var(--primary) 22%, transparent); }
+.pa-bot { position: absolute; left: calc(50% - 80px); top: 40px; width: 70px; height: 70px; border-radius: 20px; background: var(--primary); color: var(--primary-foreground); display: grid; place-items: center; box-shadow: 0 10px 24px color-mix(in oklab, var(--primary) 30%, transparent); }
+.pa-bot svg { width: 36px; height: 36px; }
+.pa-shield { position: absolute; left: calc(50% + 44px); top: 90px; width: 44px; height: 44px; border-radius: 12px; background: var(--success); color: var(--primary-foreground); display: grid; place-items: center; }
+@media (max-width: 760px) { .proc-card { padding: 20px; } .tl-icon { display: none; } .tl-status { font-size: 11px; padding: 3px 8px; } }
+@media (prefers-reduced-motion: reduce) { .spin, .dots i { animation: none; } }
