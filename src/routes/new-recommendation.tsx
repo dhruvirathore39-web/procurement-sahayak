@@ -78,9 +78,9 @@ function NewRecommendation() {
     if (!language) next.language = "Please select a language.";
     setErrors(next);
     if (Object.keys(next).length) return;
-    sessionStorage.setItem("procurement-request", JSON.stringify({ product: product.trim(), specs: specs.trim(), language, fileName: file!.name }));
+    sessionStorage.setItem("procurement-request", JSON.stringify({ product: product.trim(), specs: specs.trim(), language, fileName: file!.name, fileSize: file!.size }));
     setLoading(true);
-    window.setTimeout(() => navigate({ to: "/results" }), 700);
+    window.setTimeout(() => navigate({ to: "/processing" }), 400);
   };
 
   const ext = file?.name.split(".").pop()?.toUpperCase();
