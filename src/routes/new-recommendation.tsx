@@ -37,7 +37,7 @@ const languages = ["English", "Hindi", "Marathi", "Tamil", "Telugu", "Bengali", 
 const allowed = ["pdf", "doc", "docx"];
 const MAX = 2000;
 
-type Errors = Partial<Record<"product" | "specs" | "file" | "language", string>>;
+type Errors = Partial<Record<"product" | "specs" | "file" | "language", string | undefined>>;
 
 function NewRecommendation() {
   const navigate = useNavigate();
