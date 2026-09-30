@@ -21,7 +21,11 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as StandardsRouteImport } from './routes/standards'
+import { Route as AmendmentsIdRouteImport } from './routes/amendments.$id'
+import { Route as CertificationIdRouteImport } from './routes/certification.$id'
+import { Route as GraphIdRouteImport } from './routes/graph.$id'
 import { Route as RecommendationsIdRouteImport } from './routes/recommendations/$id'
+import { Route as StandardIdRouteImport } from './routes/standard.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -83,9 +87,29 @@ const StandardsRoute = StandardsRouteImport.update({
   path: '/standards',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AmendmentsIdRoute = AmendmentsIdRouteImport.update({
+  id: '/amendments/$id',
+  path: '/amendments/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificationIdRoute = CertificationIdRouteImport.update({
+  id: '/certification/$id',
+  path: '/certification/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GraphIdRoute = GraphIdRouteImport.update({
+  id: '/graph/$id',
+  path: '/graph/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecommendationsIdRoute = RecommendationsIdRouteImport.update({
   id: '/recommendations/$id',
   path: '/recommendations/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StandardIdRoute = StandardIdRouteImport.update({
+  id: '/standard/$id',
+  path: '/standard/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -102,7 +126,11 @@ export interface FileRoutesByFullPath {
   '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
   '/standards': typeof StandardsRoute
+  '/amendments/$id': typeof AmendmentsIdRoute
+  '/certification/$id': typeof CertificationIdRoute
+  '/graph/$id': typeof GraphIdRoute
   '/recommendations/$id': typeof RecommendationsIdRoute
+  '/standard/$id': typeof StandardIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -117,7 +145,11 @@ export interface FileRoutesByTo {
   '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
   '/standards': typeof StandardsRoute
+  '/amendments/$id': typeof AmendmentsIdRoute
+  '/certification/$id': typeof CertificationIdRoute
+  '/graph/$id': typeof GraphIdRoute
   '/recommendations/$id': typeof RecommendationsIdRoute
+  '/standard/$id': typeof StandardIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -133,7 +165,11 @@ export interface FileRoutesById {
   '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
   '/standards': typeof StandardsRoute
+  '/amendments/$id': typeof AmendmentsIdRoute
+  '/certification/$id': typeof CertificationIdRoute
+  '/graph/$id': typeof GraphIdRoute
   '/recommendations/$id': typeof RecommendationsIdRoute
+  '/standard/$id': typeof StandardIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -150,7 +186,11 @@ export interface FileRouteTypes {
     | '/results'
     | '/settings'
     | '/standards'
+    | '/amendments/$id'
+    | '/certification/$id'
+    | '/graph/$id'
     | '/recommendations/$id'
+    | '/standard/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -165,7 +205,11 @@ export interface FileRouteTypes {
     | '/results'
     | '/settings'
     | '/standards'
+    | '/amendments/$id'
+    | '/certification/$id'
+    | '/graph/$id'
     | '/recommendations/$id'
+    | '/standard/$id'
   id:
     | '__root__'
     | '/'
@@ -180,7 +224,11 @@ export interface FileRouteTypes {
     | '/results'
     | '/settings'
     | '/standards'
+    | '/amendments/$id'
+    | '/certification/$id'
+    | '/graph/$id'
     | '/recommendations/$id'
+    | '/standard/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -196,7 +244,11 @@ export interface RootRouteChildren {
   ResultsRoute: typeof ResultsRoute
   SettingsRoute: typeof SettingsRoute
   StandardsRoute: typeof StandardsRoute
+  AmendmentsIdRoute: typeof AmendmentsIdRoute
+  CertificationIdRoute: typeof CertificationIdRoute
+  GraphIdRoute: typeof GraphIdRoute
   RecommendationsIdRoute: typeof RecommendationsIdRoute
+  StandardIdRoute: typeof StandardIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -285,11 +337,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StandardsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/amendments/$id': {
+      id: '/amendments/$id'
+      path: '/amendments/$id'
+      fullPath: '/amendments/$id'
+      preLoaderRoute: typeof AmendmentsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certification/$id': {
+      id: '/certification/$id'
+      path: '/certification/$id'
+      fullPath: '/certification/$id'
+      preLoaderRoute: typeof CertificationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/graph/$id': {
+      id: '/graph/$id'
+      path: '/graph/$id'
+      fullPath: '/graph/$id'
+      preLoaderRoute: typeof GraphIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recommendations/$id': {
       id: '/recommendations/$id'
       path: '/recommendations/$id'
       fullPath: '/recommendations/$id'
       preLoaderRoute: typeof RecommendationsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/standard/$id': {
+      id: '/standard/$id'
+      path: '/standard/$id'
+      fullPath: '/standard/$id'
+      preLoaderRoute: typeof StandardIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -308,7 +388,11 @@ const rootRouteChildren: RootRouteChildren = {
   ResultsRoute: ResultsRoute,
   SettingsRoute: SettingsRoute,
   StandardsRoute: StandardsRoute,
+  AmendmentsIdRoute: AmendmentsIdRoute,
+  CertificationIdRoute: CertificationIdRoute,
+  GraphIdRoute: GraphIdRoute,
   RecommendationsIdRoute: RecommendationsIdRoute,
+  StandardIdRoute: StandardIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
