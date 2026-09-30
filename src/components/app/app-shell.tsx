@@ -32,7 +32,7 @@ export function Sidebar({ open, onToggle }: { open: boolean; onToggle: () => voi
       <button className="sidebar-menu" onClick={onToggle} aria-label="Toggle menu"><Menu /></button>
       <nav>
         {nav.map(({ label, to, icon: Icon }) => (
-          <Link key={to} to={to} className={path === to || (to === "/new-recommendation" && ["/processing", "/results"].includes(path)) ? "side-link active" : "side-link"} title={label}>
+          <Link key={to} to={to} className={path === to || (to === "/new-recommendation" && ["/processing", "/analysis", "/results"].includes(path)) ? "side-link active" : "side-link"} title={label}>
             <Icon /><span>{label}</span>
           </Link>
         ))}
