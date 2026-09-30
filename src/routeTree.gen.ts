@@ -16,6 +16,7 @@ import { Route as HistoryRouteImport } from './routes/history'
 import { Route as NewRecommendationRouteImport } from './routes/new-recommendation'
 import { Route as PendingReviewRouteImport } from './routes/pending-review'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ResultsRouteImport } from './routes/results'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as StandardsRouteImport } from './routes/standards'
 import { Route as RecommendationsIdRouteImport } from './routes/recommendations/$id'
@@ -55,6 +56,11 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SettingsRoute = SettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/new-recommendation': typeof NewRecommendationRoute
   '/pending-review': typeof PendingReviewRoute
   '/profile': typeof ProfileRoute
+  '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
   '/standards': typeof StandardsRoute
   '/recommendations/$id': typeof RecommendationsIdRoute
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/new-recommendation': typeof NewRecommendationRoute
   '/pending-review': typeof PendingReviewRoute
   '/profile': typeof ProfileRoute
+  '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
   '/standards': typeof StandardsRoute
   '/recommendations/$id': typeof RecommendationsIdRoute
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/new-recommendation': typeof NewRecommendationRoute
   '/pending-review': typeof PendingReviewRoute
   '/profile': typeof ProfileRoute
+  '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
   '/standards': typeof StandardsRoute
   '/recommendations/$id': typeof RecommendationsIdRoute
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/new-recommendation'
     | '/pending-review'
     | '/profile'
+    | '/results'
     | '/settings'
     | '/standards'
     | '/recommendations/$id'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/new-recommendation'
     | '/pending-review'
     | '/profile'
+    | '/results'
     | '/settings'
     | '/standards'
     | '/recommendations/$id'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/new-recommendation'
     | '/pending-review'
     | '/profile'
+    | '/results'
     | '/settings'
     | '/standards'
     | '/recommendations/$id'
@@ -155,6 +167,7 @@ export interface RootRouteChildren {
   NewRecommendationRoute: typeof NewRecommendationRoute
   PendingReviewRoute: typeof PendingReviewRoute
   ProfileRoute: typeof ProfileRoute
+  ResultsRoute: typeof ResultsRoute
   SettingsRoute: typeof SettingsRoute
   StandardsRoute: typeof StandardsRoute
   RecommendationsIdRoute: typeof RecommendationsIdRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/settings': {
       id: '/settings'
       path: '/settings'
@@ -243,6 +263,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewRecommendationRoute: NewRecommendationRoute,
   PendingReviewRoute: PendingReviewRoute,
   ProfileRoute: ProfileRoute,
+  ResultsRoute: ResultsRoute,
   SettingsRoute: SettingsRoute,
   StandardsRoute: StandardsRoute,
   RecommendationsIdRoute: RecommendationsIdRoute,
