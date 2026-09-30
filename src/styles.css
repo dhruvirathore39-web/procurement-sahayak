@@ -407,3 +407,10 @@
   .welcome-banner { padding: 22px; } .banner-art { display: none; } .welcome-banner h1 { font-size: 25px; }
   .summary-grid { grid-template-columns: 1fr; }
 }
+.summary-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.summary-card > div { min-width: 0; }
+.welcome-banner h1, .panel-head h2, .screen-head h1 { font-weight: 700; }
+.rec-table td:first-child { white-space: nowrap; }
+.std { white-space: nowrap; }
+@media (max-width: 1180px) { .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .summary-grid { grid-template-columns: 1fr; } }
