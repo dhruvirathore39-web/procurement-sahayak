@@ -146,7 +146,10 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    box-sizing: border-box;
   }
+
+  *::before, *::after { box-sizing: border-box; }
 
   body {
     background-color: var(--color-background);
@@ -215,8 +218,8 @@
 .wave-deep { z-index: 3; height: 105px; bottom: -34px; background: var(--intro-deep); transform: rotate(-7deg); }
 .national-motto { position: absolute; z-index: 4; bottom: 28px; width: 100%; margin: 0; text-align: center; color: var(--primary-foreground); font-size: 13px; font-style: italic; }
 .national-motto b { padding: 0 15px; font-style: normal; font-weight: 400; opacity: .75; }
-.login-panel { display: grid; place-items: center; min-height: 100svh; padding: 40px; background: radial-gradient(circle at 65% 40%, var(--card) 0, var(--background) 65%); }
-.login-card { width: min(100%, 560px); padding: clamp(36px, 5vw, 58px) clamp(32px, 4vw, 54px) 34px; border: 1px solid color-mix(in oklab, var(--border) 60%, transparent); border-radius: 14px; background: var(--card); box-shadow: 0 18px 60px color-mix(in oklab, var(--intro-deep) 9%, transparent); }
+.login-panel { display: grid; min-width: 0; place-items: center; min-height: 100svh; padding: 40px; background: radial-gradient(circle at 65% 40%, var(--card) 0, var(--background) 65%); }
+.login-card { width: min(100%, 560px); min-width: 0; padding: clamp(36px, 5vw, 58px) clamp(32px, 4vw, 54px) 34px; border: 1px solid color-mix(in oklab, var(--border) 60%, transparent); border-radius: 14px; background: var(--card); box-shadow: 0 18px 60px color-mix(in oklab, var(--intro-deep) 9%, transparent); }
 .card-mark-row { display: flex; align-items: center; justify-content: center; gap: 34px; }
 .card-mark-row > span { width: 78px; height: 1px; background: var(--primary); opacity: .75; }
 .ai-mark { position: relative; display: grid; place-items: center; width: 62px; height: 62px; border-radius: 18px; background: color-mix(in oklab, var(--primary) 10%, var(--card)); color: var(--primary); }
