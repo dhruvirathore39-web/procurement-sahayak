@@ -15,6 +15,7 @@ import { Route as HelpRouteImport } from './routes/help'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as NewRecommendationRouteImport } from './routes/new-recommendation'
 import { Route as PendingReviewRouteImport } from './routes/pending-review'
+import { Route as ProcessingRouteImport } from './routes/processing'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -51,6 +52,11 @@ const PendingReviewRoute = PendingReviewRouteImport.update({
   path: '/pending-review',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProcessingRoute = ProcessingRouteImport.update({
+  id: '/processing',
+  path: '/processing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/history': typeof HistoryRoute
   '/new-recommendation': typeof NewRecommendationRoute
   '/pending-review': typeof PendingReviewRoute
+  '/processing': typeof ProcessingRoute
   '/profile': typeof ProfileRoute
   '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByTo {
   '/history': typeof HistoryRoute
   '/new-recommendation': typeof NewRecommendationRoute
   '/pending-review': typeof PendingReviewRoute
+  '/processing': typeof ProcessingRoute
   '/profile': typeof ProfileRoute
   '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
@@ -111,6 +119,7 @@ export interface FileRoutesById {
   '/history': typeof HistoryRoute
   '/new-recommendation': typeof NewRecommendationRoute
   '/pending-review': typeof PendingReviewRoute
+  '/processing': typeof ProcessingRoute
   '/profile': typeof ProfileRoute
   '/results': typeof ResultsRoute
   '/settings': typeof SettingsRoute
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/new-recommendation'
     | '/pending-review'
+    | '/processing'
     | '/profile'
     | '/results'
     | '/settings'
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/new-recommendation'
     | '/pending-review'
+    | '/processing'
     | '/profile'
     | '/results'
     | '/settings'
@@ -152,6 +163,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/new-recommendation'
     | '/pending-review'
+    | '/processing'
     | '/profile'
     | '/results'
     | '/settings'
@@ -166,6 +178,7 @@ export interface RootRouteChildren {
   HistoryRoute: typeof HistoryRoute
   NewRecommendationRoute: typeof NewRecommendationRoute
   PendingReviewRoute: typeof PendingReviewRoute
+  ProcessingRoute: typeof ProcessingRoute
   ProfileRoute: typeof ProfileRoute
   ResultsRoute: typeof ResultsRoute
   SettingsRoute: typeof SettingsRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PendingReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/processing': {
+      id: '/processing'
+      path: '/processing'
+      fullPath: '/processing'
+      preLoaderRoute: typeof ProcessingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -262,6 +282,7 @@ const rootRouteChildren: RootRouteChildren = {
   HistoryRoute: HistoryRoute,
   NewRecommendationRoute: NewRecommendationRoute,
   PendingReviewRoute: PendingReviewRoute,
+  ProcessingRoute: ProcessingRoute,
   ProfileRoute: ProfileRoute,
   ResultsRoute: ResultsRoute,
   SettingsRoute: SettingsRoute,
