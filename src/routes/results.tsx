@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronRight, FileCheck2, House } from "lucide-react";
+import { ArrowRight, ChevronRight, FileCheck2, House } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { AppShell, ScreenPlaceholder } from "../components/app/app-shell";
+import { recommendedOrder, standards } from "../components/app/standards";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -28,10 +29,9 @@ function Results() {
   return (
     <AppShell>
       <nav className="breadcrumb" aria-label="Breadcrumb">
-        <House /><ChevronRight /><Link to="/dashboard">Dashboard</Link><ChevronRight />
-        <Link to="/new-recommendation">New Recommendation</Link><ChevronRight /><span>Results</span>
+        <House /><ChevronRight /><Link to="/new-recommendation">New Recommendation</Link><ChevronRight /><span>Recommendation Results</span>
       </nav>
-      <ScreenPlaceholder title="Recommendation Results" description={req ? `Results for ${req.product}` : "No requirement submitted yet."} icon={FileCheck2}>
+      <ScreenPlaceholder title="Recommendation Results" description={req ? `Recommended standards for ${req.product}` : "Sample recommended standards (demo data)."} icon={FileCheck2}>
         {req ? (
           <dl className="detail-grid">
             <div><dt>Product / Equipment</dt><dd>{req.product}</dd></div>
@@ -39,7 +39,19 @@ function Results() {
             <div><dt>Uploaded document</dt><dd>{req.fileName}</dd></div>
           </dl>
         ) : null}
-        <p className="screen-note">The full results screen is coming next in the prototype.</p>
+        <div className="result-list">
+          {recommendedOrder.map((id) => {
+            const s = standards[id]!;
+            return (
+              <div className="result-row" key={id}>
+                <div><strong>{s.number}</strong><small>{s.title}</small></div>
+                <span className={`tag tag-${s.relation.toLowerCase()}`}>{s.relation}</span>
+                <span className="match">{s.match}%</span>
+                <Link to="/standard/$id" params={{ id }} className="view-link">View Details <ArrowRight /></Link>
+              </div>
+            );
+          })}
+        </div>
       </ScreenPlaceholder>
     </AppShell>
   );
