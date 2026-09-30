@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project architecture
+
+- Keep prototype authentication in `sessionStorage`; this presentation build intentionally has no persistent accounts or backend.
+- Reuse `src/components/ui/button.tsx` for all primary application actions to keep government portal controls consistent.
