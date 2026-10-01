@@ -673,3 +673,14 @@
   .g-conn-v em, .g-mid > .g-conn-h em { margin-left: 120px; }
   .g-node { width: 200px; }
 }
+.g-mid { grid-template-columns: 1fr 44px auto 44px 1fr; }
+.g-node { width: 150px; }
+.g-slot:has(.g-pop) { z-index: 20; }
+.g-pop { z-index: 30; }
+.g-conn-h em { width: 70px; }
+@media (max-width: 760px) {
+  .g-mid > * { order: 9; }
+  .g-mid .g-slot.g-primary { order: 0; } .g-mid > .g-conn-h:nth-child(2) { order: 1; } .g-mid > .g-slot:first-child { order: 2; }
+  .g-mid > .g-conn-h:nth-child(4) { order: 3; } .g-mid > .g-slot:last-child { order: 4; }
+  .g-node { width: 200px; }
+}
