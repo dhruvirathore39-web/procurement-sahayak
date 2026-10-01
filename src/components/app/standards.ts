@@ -74,7 +74,31 @@ export const standards: Record<string, Standard> = {
     applicability: "Applicable where transformers form part of the procured installation.",
     related: ["is-16068-2024", "is-10322-2020"],
   },
+  "is-15558-2021": {
+    ...base,
+    id: "is-15558-2021",
+    number: "IS 15558:2021",
+    title: "Safety Requirements for Solar Systems",
+    relation: "Related",
+    match: 78,
+    category: "Electrotechnical",
+    subCategory: "Solar Energy Systems",
+    scope: "This standard specifies safety requirements for solar energy systems, covering protection, risk management, installation and marking.",
+    applicability: "Applicable to safety aspects of solar systems supplied under the procurement.",
+    related: ["is-16068-2024", "is-10322-2020"],
+  },
 };
+
+export type GraphKind = "allied" | "normative" | "testing" | "safety";
+export type GraphNode = { id: string; kind: GraphKind; label: string; number: string; title: string; short: string; badge: string; match: number; link: string };
+
+// Demo relationship dataset for the Standards Relationship Graph (prototype data).
+export const graphNodes: GraphNode[] = [
+  { id: "is-14220-2021", kind: "allied", label: "Allied Standard", number: "IS 14220:2021", title: "Solar Photovoltaic (PV) Modules", short: "Solar Photovoltaic (PV) Modules", badge: "Allied", match: 87, link: "Provides complementary details" },
+  { id: "is-10322-2020", kind: "normative", label: "Normative Standard", number: "IS 10322:2020", title: "LED Street Light (Normative Reference)", short: "LED Street Light", badge: "Normative", match: 82, link: "Provides reference criteria" },
+  { id: "is-1180-2020", kind: "testing", label: "Testing Standard", number: "IS 1180:2020", title: "Transformer (Testing Methods)", short: "Transformer", badge: "Primary", match: 90, link: "Specifies testing and validation methods" },
+  { id: "is-15558-2021", kind: "safety", label: "Safety Standard", number: "IS 15558:2021", title: "Safety Requirements for Solar Systems", short: "Safety Requirements for Solar Systems", badge: "Safety", match: 78, link: "Ensures safety & risk management" },
+];
 
 export const recommendedOrder = ["is-16068-2024", "is-1180-2020", "is-14220-2021", "is-10322-2020"];
 export const DEFAULT_STANDARD = "is-16068-2024";
